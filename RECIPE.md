@@ -5,7 +5,7 @@ format = "recipkg/1"
 
 [package]
 name = "rewrite-software"
-version = "0.1.1"
+version = "0.1.2"
 kind = "skill"
 description = "根据新需求先更新软件配方，再依据完整递归提示词重新实现软件并验证行为变化。用于重写某个软件、改变技术实现或从新的构建提示词重新生成项目。"
 entry = "SKILL.md"
