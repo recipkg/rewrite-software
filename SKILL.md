@@ -11,7 +11,7 @@ description: 根据新需求先更新软件配方，再依据完整递归提示�
 
 ## 步骤
 
-1. 使用 `recipkg rewrite <package> --request "本轮要求"` 生成标准提示词。
+1. 使用 `recipkg rewrite <package> --request "本轮要求"` 生成标准提示词。若目标是带 Git 依赖的工作树目录，先用 `recipkg pack <path> -o <archive.recipe.tar.gz>` 显式收集完整递归依赖，并运行 `recipkg check <archive>`；再把自包含归档作为 `rewrite` 目标。`rewrite` 和 `check` 不会联网获取 Git 依赖。需要按版本对照时，将归档安装到隔离存储（`RECIPKG_HOME`），并用精确的 `name@version` 选择版本；不要依赖默认存储中未确认的配方版本。
 2. 先更新需求、接口、依赖和验收条件，标明应保留与应改变的公开行为。
 3. 保留旧产物，在单独目录依照新配方生成实现；避免依赖未写入配方的旧源码细节。
 4. 执行验收并比较新旧行为，记录预期变化和意外差异。
